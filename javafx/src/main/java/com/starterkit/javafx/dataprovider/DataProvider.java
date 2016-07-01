@@ -1,9 +1,10 @@
 package com.starterkit.javafx.dataprovider;
 
+import java.io.File;
+import java.io.IOException;
 import java.util.Collection;
 
-import com.starterkit.javafx.dataprovider.data.PersonVO;
-import com.starterkit.javafx.dataprovider.data.SexVO;
+import com.starterkit.javafx.dataprovider.data.FileVO;
 import com.starterkit.javafx.dataprovider.impl.DataProviderImpl;
 
 /**
@@ -18,15 +19,11 @@ public interface DataProvider {
 	 */
 	DataProvider INSTANCE = new DataProviderImpl();
 
-	/**
-	 * Finds persons with their name containing specified string and/or given
-	 * sex.
-	 *
-	 * @param name
-	 *            string contained in name
-	 * @param sex
-	 *            sex
-	 * @return collection of persons matching the given criteria
-	 */
-	Collection<PersonVO> findPersons(String name, SexVO sex);
+	
+	Collection<File> getFiles(String directoryName) throws IOException;
+
+
+	Collection<FileVO> getFilesVO(String directoryName) throws IOException;
+
+
 }
